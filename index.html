@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Just Add Force for Delicate Robot Policies</title>
+    <link rel="icon" type="image/png" sizes="76x76" href="media/jaf.png">
+
+    <meta name="description" content="Paper website for Just Add Force for Delicate Robot Policies">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <meta property="og:image" content="https://justaddforce.github.io/media/teaser.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justaddforce.github.io/"/>
+    <meta property="og:title" content="Just Add Force for Delicate Robot Policies" />
+    <meta property="og:description" content="Project page for Just Add Force for Delicate Robot Policies paper." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Just Add Force for Delicate Robot Policies" />
+    <meta name="twitter:description" content="Project page for Just Add Force for Delicate Robot Policies paper." />
+    <meta name="twitter:image" content="https://justaddforce.github.io/media/teaser.png" />
+
+<!-- progprompt -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+<!--  -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+  
+    <script src="js/app.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // remove dropdown duplicates: https://stackoverflow.com/questions/23729456/how-to-remove-duplicate-dropdown-option-elements-with-same-value
+        $(".select option").each(function() {
+        $(this).siblings('[value="'+ this.value +'"]').remove();
+        });
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    }, false);
+    </script>
+    <style>
+        .nav-pills {
+            position: relative;
+            display: inline;
+        }
+
+        .imtip {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                </strong>
+                <strong>
+                    <!-- <font size="+4">Inferring Object Mass, Friction, and Compliance with LLMs for Adaptive and Minimally Deforming Grasp Policies</font> -->
+                    <font size="+4">Just Add Force for Delicate Robot Policies</font>
+                </strong>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <br>
+                    <li>William Xie <span class="icon">
+                        <a href="mailto:william.xie@colorado.edu"><i class="fa fa-envelope"></i></a>,
+                      </span></li>
+                    <li>Stefan Caldararu</li>
+                    <li>Nikolaus Correll</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">                
+                <strong>University of Colorado at Boulder</strong>
+            </div>
+        </div>
+    </div>
+    <!-- container break -->
+    <div class="row"> <div class="col text-center">
+    <section class="hero">
+        <div class="hero-body" style="padding: 10px">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="publication-links">
+                    <span class="link-block">
+                        <a target="_blank" href="media/justaddforce.pdf"
+                           class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                              <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span>Paper</span>
+                        </a>
+                      </span>
+
+                    <!-- <span class="link-block">
+                      <a target="_blank" href="https://arxiv.org/abs/2403.07832"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span> -->
+      
+                  <span class="link-block">
+                    <a target="_blank" href="https://github.com/badinkajink/deligrasp_policy_learning"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                      </a>
+                  </span>
+      
+                  <span class="link-block">
+                    <a href="#faqs"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fas fa-question"></i>
+                      </span>
+                      <span>FAQs</span>
+                      </a>
+                  </span>  
+
+                  <!-- <span class="link-block">
+                    <a target="_blank" href="https://youtu.be/gcEFXVynbAs"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                      </a>
+                  </span> -->
+
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    </div></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-md-8">
+                <p style="text-align:center;">
+                    <image src="media/highlevel.png" class="img-responsive">
+                </p>
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Robot trajectories used for learning end-to-end robot policies typically contain end-effector and gripper position, workspace images, and language. Policies learned from such trajectories are unsuitable for delicate grasping, which require tightly coupled and precise gripper force and gripper position. We collect and make publically available 130 trajectories with force feedback of successful grasps on 30 unique objects. Our current-based method for sensing force, albeit noisy, is gripper-agnostic and requires no additional hardware. We train and evaluate two diffusion policies: one with (forceful) the collected force feedback and one without (position-only). We find that forceful policies are superior to position-only policies for delicate grasping and are able to generalize to unseen delicate objects, while reducing grasp policy latency by near 4x, relative to LLM-based methods. With our promising results on limited data, we hope to signal to others to consider investing in collecting force and other such tactile information in new datasets, enabling more robust, contact-rich manipulation in future robot foundation models.                </p>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-2"></div>
+            <div class="col-md-8">
+                <h3>
+                    Approach Overview
+                </h3>
+                <p style="text-align:center;">
+                    <image src="owsp/system.png" class="img-responsive">
+                </p>
+                <p class="text-justify">
+                </p>
+            </div>
+            <div class="col-2"></div> -->
+
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-md-8">
+                <h3>
+                    Diffusion Policies: Force vs. Position Only
+                </h3>
+                <p style="text-align:center;">
+                    <image src="media/success_barchart.png" class="img-responsive">
+                </p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row" id="demo">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 col-xs-12">
+                <h3>
+                    Per-Object Analysis
+                </h3>
+                <p style="text-align:center;">
+                    <image src="media/breakdown.png" class="img-responsive">
+                </p>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 text-center px-0">
+                    <image width="100%" src="img/deli_data_tab.png" class="img-responsive">
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+<!-- break container -->
+</div>
+
+<!-- resume container -->
+<div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" id="faqs">
+                <h3>
+                      FAQs
+                  </h3>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h3>
+                    BibTeX Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly style="height: 135px;">
+@article{,
+    title={} </textarea>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    The website template is adapted from <a href="https://language-to-reward.github.io/">Language to Rewards</a> and <a href="https://progprompt.github.io">ProgPrompt</a>.
+                </p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    timeoutIds = [];
+
+    function populateDemo(imgs) {
+        // Get the expanded image
+        var expandImg = document.getElementById("expandedImg");
+        // Get the image text
+        var imgText = document.getElementById("imgtext");
+        var answer = document.getElementById("answer");
+
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        expandImg.src = imgs.src.replace(".png", ".mp4");
+        var video = document.getElementById('demo-video');
+        // or video = $('.video-selector')[0];
+        video.pause()
+        video.load();
+        video.play();
+        video.removeAttribute('controls');
+        
+        console.log(expandImg.src);
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        var qa = imgs.alt.split("[sep]");
+        imgText.innerHTML = qa[0];
+        answer.innerHTML = "";
+        // Show the container element (hidden with CSS)
+        expandImg.parentElement.style.display = "block";
+        for (timeoutId of timeoutIds) {
+            clearTimeout(timeoutId);
+        }
+        typeWriter(qa[1], 0, qa[0]);
+    }
+
+    // function typeWriter(div, txt, i, q) {
+    function typeWriter(txt, i, q) {
+        var imgText = document.getElementById("imgtext");
+        if (imgText.innerHTML == q) {
+            if (i < txt.length) {
+                if (txt.charAt(i) == "\\") {
+                    answer.innerHTML += "\n";
+                    // div.innerHTML += "\n";
+                    i += 1;
+                } else {
+                    answer.innerHTML += txt.charAt(i);
+                    // div.innerHTML += txt.charAt(i);
+                }
+                i++;
+                timeoutIds.push(setTimeout(typeWriter, 5, txt, i, q));
+            }
+            else {
+                hljs.highlightAll();
+            }
+        }
+        i = 0
+    }
+
+    var myCarousel = document.querySelector('#myCarousel')
+    var carousel = new bootstrap.Carousel(myCarousel, {interval: 500, wrap: true})
+    var slides = document.querySelectorAll('.carousel .carousel-item')
+
+    slides.forEach((el) => {
+        // number of slides per carousel-item
+        const minPerSlide = slides.length
+        let next = el.nextElementSibling
+        for (var i=1; i<minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = slides[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
+        }
+})
+
+</script>
+</html>
+
