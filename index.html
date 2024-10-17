@@ -193,6 +193,7 @@
         </div>
     </section>
     </div></div>
+
     <div class="container">
         <div class="row">
             <div class="col-2"></div>
@@ -218,22 +219,67 @@
             </div>
             <div class="col-md-2"></div>
         </div>
+    </div>
 
-        <!-- <div class="row">
-            <div class="col-2"></div>
-            <div class="col-md-8">
-                <h3>
-                    Approach Overview
-                </h3>
-                <p style="text-align:center;">
-                    <image src="owsp/system.png" class="img-responsive">
-                </p>
-                <p class="text-justify">
-                </p>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-md-8">
+            <h3>
+                Click a picture and evaluate the model yourself!
+            </h3>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="row" style="padding-bottom: 10px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-2 col-xs-12">
+            <div class="row" style="padding-bottom: 5px;">
+                <div class="col-md-6 col-sm-6 col-xs-6 px-1">
+                    <img src="videos/01_blackberry.png" width="100%"
+                        alt="6.8[sep]1.7"
+                        onclick="populateDemo(this);">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 px-1">
+                    <img src="videos/02_empty-can.png" width="100%"
+                        alt="60.5[sep]56.7"
+                        onclick="populateDemo(this);">
+                </div>            
             </div>
-            <div class="col-2"></div> -->
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 px-1">
+                    <img src="videos/03_tomato.png" width="100%"
+                        alt="41.9[sep]36.5"
+                        onclick="populateDemo(this);">
+                </div>
+                <!-- <div class="col-md-6 col-sm-6 col-xs-6 px-1">
+                    <img src="videos/05_taco.png" width="100%" 
+                        onclick="populateDemo(this);">
+                </div> -->
+            </div>
+        </div>
+        <div class="col-md-6 border rounded">
+            <div class="row" id="videos">
+                <div class="col-md-6" id="video_go">
+                    <div id="dpgotext" class="imgtext">Forceful Policy</div>
+                    <div id="dpgo"></div>
+                </div>
+                <div class="col-md-6" id="video_gonf">
+                    <div id="dpgonftext" class="imgtext">Position-only Policy</div>
+                    <div id="dpgonf"></div>
+                </div> 
+            </div>
+            <div id="placeholder">
+                <video width="100%" height="100%" id="demo-video" autoplay loop muted webkit-playsinline playsinline onclick="setAttribute('controls', 'true');">
+                    <source id="expandedImg" src="videos/justaddforce.mp4" type="video/mp4">
+                </video>       
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>    
 
-
+    <div class="container">
         <div class="row">
             <div class="col-2"></div>
             <div class="col-md-8">
@@ -242,6 +288,9 @@
                 </h3>
                 <p style="text-align:center;">
                     <image src="media/success_barchart.png" class="img-responsive">
+                </p>
+                <p>
+
                 </p>
             </div>
             <div class="col-md-2"></div>
@@ -256,15 +305,11 @@
                 <p style="text-align:center;">
                     <image src="media/breakdown.png" class="img-responsive">
                 </p>
+                <p>
+                    
+                </p>
             <div class="col-2"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 text-center px-0">
-                    <image width="100%" src="img/deli_data_tab.png" class="img-responsive">
             </div>
-            <div class="col-md-2"></div>
         </div>
 <!-- break container -->
 </div>
@@ -276,7 +321,26 @@
             <div class="col-md-8" id="faqs">
                 <h3>
                       FAQs
-                  </h3>
+                </h3>
+                <p><b>
+                    What's next?
+                </b></p>  
+                <p>
+                    We're trying to isolate and fully characterize the utility of force feedbacck
+                    in end-to-end robot policies.
+                </p>                
+                <p><b>
+                    Why this weird font?
+                </b></p>  <p>
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" class="collapsible">Let me cook...</button>
+                        <div class="content">
+                            <img src="media/justaddwater.png" width="60%">
+                        </div>      
+                    </div>
+                    </div>     
+                </p>                
             </div>
             <div class="col-md-2"></div>
           </div>
@@ -314,36 +378,57 @@
 </body>
 
 <script>
-
-    timeoutIds = [];
-
     function populateDemo(imgs) {
-        // Get the expanded image
-        var expandImg = document.getElementById("expandedImg");
-        // Get the image text
-        var imgText = document.getElementById("imgtext");
-        var answer = document.getElementById("answer");
+        // delete video with id demo-video
+        var placeholder = document.getElementById('placeholder');
+        placeholder.innerHTML = ""
 
-        // Use the same src in the expanded image as the image being clicked on from the grid
-        expandImg.src = imgs.src.replace(".png", ".mp4");
-        var video = document.getElementById('demo-video');
-        // or video = $('.video-selector')[0];
-        video.pause()
-        video.load();
-        video.play();
-        video.removeAttribute('controls');
-        
-        console.log(expandImg.src);
-        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        // Get the image text
+        var dpgotext = document.getElementById("dpgotext");
+        var dpgonftext = document.getElementById("dpgonftext");
         var qa = imgs.alt.split("[sep]");
-        imgText.innerHTML = qa[0];
-        answer.innerHTML = "";
+        dpgotext.innerHTML = `Forceful Policy: ${qa[0]} mm`;
+        dpgonftext.innerHTML = `Position-Only Policy: ${qa[1]} mm`;
+
+        var dpgo = document.getElementById("dpgo");
+        dpgo.innerHTML = "";
+        var dpgonf = document.getElementById("dpgonf");
+        dpgonf.innerHTML = "";
+
+        var dpgoVideo = document.createElement("video");
+        dpgoVideo.setAttribute("width", "100%");
+        dpgoVideo.setAttribute("height", "100%");
+        dpgoVideo.setAttribute("autoplay", "true");
+        dpgoVideo.setAttribute("loop", "true");
+        dpgoVideo.setAttribute("muted", "true");
+
+        var dpgoSource = document.createElement("source");
+        dpgoSource.setAttribute("src", imgs.src.replace(".png", "-go.mp4"));
+        dpgoSource.setAttribute("type", "video/mp4");
+
+        dpgoVideo.appendChild(dpgoSource);
+        dpgo.appendChild(dpgoVideo);
+
+        var dpgonfVideo = document.createElement("video");
+        dpgonfVideo.setAttribute("width", "100%");
+        dpgonfVideo.setAttribute("height", "100%");
+        dpgonfVideo.setAttribute("autoplay", "true");
+        dpgonfVideo.setAttribute("loop", "true");
+        dpgonfVideo.setAttribute("muted", "true");
+
+        // Create a source element for dpgonf video
+        var dpgonfSource = document.createElement("source");
+        dpgonfSource.setAttribute("src", imgs.src.replace(".png", "-gonf.mp4"));
+        dpgonfSource.setAttribute("type", "video/mp4");
+
+        // Append the source to the dpgonf video
+        dpgonfVideo.appendChild(dpgonfSource);
+        dpgonf.appendChild(dpgonfVideo);
+
+        
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
         // Show the container element (hidden with CSS)
         expandImg.parentElement.style.display = "block";
-        for (timeoutId of timeoutIds) {
-            clearTimeout(timeoutId);
-        }
-        typeWriter(qa[1], 0, qa[0]);
     }
 
     // function typeWriter(div, txt, i, q) {
