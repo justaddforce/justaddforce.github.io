@@ -209,16 +209,6 @@
             </div>
             <div class="col-2"></div>
         </div>
-
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-md-8">
-                <h3>
-                    Data download link: <a href="https://drive.google.com/drive/folders/1W5pKdqsiXAujO3R8qoVz0g2Y5Bv0nFxh?usp=sharing">Google Drive</a>
-                </h3>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
     </div>
 
 <div class="container">
@@ -261,11 +251,11 @@
         <div class="col-md-6 border rounded">
             <div class="row" id="videos">
                 <div class="col-md-6" id="video_go">
-                    <div id="dpgotext" class="imgtext">Forceful Policy</div>
+                    <div id="dpgotext" class="imgtext"></div>
                     <div id="dpgo"></div>
                 </div>
                 <div class="col-md-6" id="video_gonf">
-                    <div id="dpgonftext" class="imgtext">Position-only Policy</div>
+                    <div id="dpgonftext" class="imgtext"></div>
                     <div id="dpgonf"></div>
                 </div> 
             </div>
@@ -277,9 +267,47 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-md-8">
+            <h3>
+                Data download link: <a href="https://drive.google.com/drive/folders/1W5pKdqsiXAujO3R8qoVz0g2Y5Bv0nFxh?usp=sharing">Google Drive</a>
+            </h3>
+            <hr>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 </div>    
 
     <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-md-8">
+                <h3>
+                    Approach Overview
+                </h3>
+                <p>
+                     We introduce a dataset (RLDS format) of 130 successful adaptive grasp trajectories across 30 unique objects spanning two orders of magnitude in mass (1g to 500g)
+                     and variable deformability. Data is collected at 5 Hz from a MAGPIE gripper on a UR5 robot arm with a wrist-mounted Realsense D405 camera and a Realsense D435 camera 
+                     overlooking a square, 55cm table. 
+                </p>
+                <p>
+                    To collect expert demonstrations, we employ DeliGrasp, which uses LLM-estimated object mass, friction coefficient, and spring constants as 
+                    parameters in a proportional controller which increases applied force and gripper closure until a measured contact force. 
+                    We command applied force by incrementing motor torque limit on a Dynamixel motor (an equivalent actuator-agnostic approach would be to increase supply current), 
+                    and we measure contact force from increased current draw.
+                </p>
+                <p>
+                    We train diffusion policies from this data, one with the full feature set and one without force (position-only). 
+                    In our experiments we deploy and evaluate the policies only during the stationary grasp portion of a trajectory. 
+                    We manually qualify deformation failures on a per-object common-sense basis and 
+                    check for slip by raising the robot gripper directly vertically by 10cm. 
+                    As the average adaptive grasp in the dataset completes in under 10 steps, for one ``grasp" we rollout the policy for 15 steps at 4Hz.         
+                </p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
         <div class="row">
             <div class="col-2"></div>
             <div class="col-md-8">
@@ -290,13 +318,17 @@
                     <image src="media/success_barchart.png" class="img-responsive">
                 </p>
                 <p>
-
+                    Across all objects, we find that forceful policies (82% success) are superior to position-only policies (54% success). 
+                    Position-only policies are still capable, perhaps because they are artifacts of forceful adaptive grasping, just trained without the force feedback, 
+                    and the control law may be implicitly learned through solely vision, gripper position, and task instruction. 
+                    Forceful policies generalize to unseen objects (80% success, compared to 85% for seen objects) and 
+                    withhheld policies improve (60%, up from 45%), potentially due to relatively stiff objects like the egg and potato chip being forgiving for additional compression.
                 </p>
             </div>
             <div class="col-md-2"></div>
         </div>
 
-        <div class="row" id="demo">
+        <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 col-xs-12">
                 <h3>
@@ -306,7 +338,12 @@
                     <image src="media/breakdown.png" class="img-responsive">
                 </p>
                 <p>
-                    
+                    In the above figure we depict per-object grasp trajectories and forces and observe that position-only policies uniformly compress more than forceful policies. 
+                    Position-only policies are initially more aggressive in closing the gripper and often continue aggressive closure past contact, resulting in deformation failures. 
+                    Forceful policies flatten applied force as contact force increases for some objects (pepper, empty taco, blackberry, tomato), 
+                    showing vestiges of the proportional control law used in expert demonstrations, however, 
+                    policies still apply more force than is typically needed and have not fully learned the control characteristics. 
+                    Additionally, while objects span a large range of gripper position (5 to 65mm), final applied force lies in a smaller range (1.1N to 2.3N).
                 </p>
             <div class="col-2"></div>
             </div>
